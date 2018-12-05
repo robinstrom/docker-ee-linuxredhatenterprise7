@@ -17,51 +17,51 @@ Take the value of the DOCKERURL variable and store it in a yum variable in /etc/
 
 Store your OS version strin in /etc/yum/vars/dockerosversion:
 
-  $ sudo sh -c ’echo ”7” > /etc/yum/vars/dockerosversion’
+	$ sudo sh -c ’echo ”7” > /etc/yum/vars/dockerosversion’
 
 Install required packages:
 
-  $ sudo yum install -y yum-utils \
-  device-mapper-persistent-data \
-  lvm2
+	$ sudo yum install -y yum-utils \
+	  device-mapper-persistent-data \
+	  lvm2
 
 To ensure access to the container-selinux package, you have to enable extras:
 
-  $ sudo yum-configer-manager –enable rhel-7-server-extras-rpms
+	$ sudo yum-configer-manager –enable rhel-7-server-extras-rpms
 
 Add Docker EE stable repository
 
-  $ sudo -E yum-config-manager \
-  --add-repo \
-  “$DOCKERURL/rhel/docker-ee.repo”
+	$ sudo -E yum-config-manager \
+	  --add-repo \
+	  “$DOCKERURL/rhel/docker-ee.repo”
 
 Installing from the Repository:
 
-  $ sudo yum -y install docker-ee
+	$ sudo yum -y install docker-ee
 
 Start Docker:
 
-  $ sudo systemctl start docker
+	$ sudo systemctl start docker
 
 By running the hello-world image we can verify that the Docker EE installation is done correctly:
 
-  $ sudo docker run hello-world
+	$ sudo docker run hello-world
 
 To be able to run docker commands without having to write sudo before every command, simply create a docker group and add your user:
 
 Creating the group:
 
-  $ sudo groupadd docker
+	$ sudo groupadd docker
 
 Adding your user:
 
-  $ sudo usermod -aG docker $USER
+	$ sudo usermod -aG docker $USER
 
 You have to log out and back in for your membership to be re-evaluated. On virtual machine you might have to restart, and in that case you could just type:
 
-  $ reboot
+	$ reboot
 
 Verify that you now can run docker commands without using sudo by running the hello-world image again:
 
-  $ docker run hello-world
+	$ docker run hello-world
 
