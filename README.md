@@ -10,15 +10,15 @@ Create yum-repository:
 
 Store a temporary environment variable with the URL that you copied from before:
 
-	$ export DOCKERURL=”<DOCKER-EE-URL>”
+	$ export DOCKERURL="<DOCKER-EE-URL>"
   
 Take the value of the DOCKERURL variable and store it in a yum variable in /etc/yum/vars:
 
-	$ sudo -E sh -c ‘echo “$DOCKERURL/rhel” > /etc/yum/vars/dockerurl’
+	$ sudo -E sh -c 'echo "$DOCKERURL/rhel" > /etc/yum/vars/dockerurl'
 
 Store your OS version strin in /etc/yum/vars/dockerosversion:
 
-	$ sudo sh -c ’echo ”7” > /etc/yum/vars/dockerosversion’
+	$ sudo sh -c 'echo "7" > /etc/yum/vars/dockerosversion'
 
 Install required packages:
 
@@ -34,7 +34,7 @@ Add Docker EE stable repository
 
 	$ sudo -E yum-config-manager \
 	  --add-repo \
-	  “$DOCKERURL/rhel/docker-ee.repo”
+	  "$DOCKERURL/rhel/docker-ee.repo"
 
 Installing from the Repository:
 
