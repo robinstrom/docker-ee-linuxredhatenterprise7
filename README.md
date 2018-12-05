@@ -2,17 +2,18 @@
 A quick go through on how to setup Docker EE on a Linux Red Hat Enterprise 7 server.
 
 Installing Docker EE on Red Hat Enterprise 7 server
+
 Get your Docker EE repository URL:
 Go to https://store.docker.com/my-content and click the Setup button for Docker Enterprise Edition for Red Hat Enterprise Linux. There you copy the URL to download you edition.
 
 Create yum-repository:
 Store a temporary environment variable with the URL that you copied from before:
 
-  $ export DOCKERURL=”<DOCKER-EE-URL>”
+	$ export DOCKERURL=”<DOCKER-EE-URL>”
   
 Take the value of the DOCKERURL variable and store it in a yum variable in /etc/yum/vars:
 
-  $ sudo -E sh -c ‘echo “$DOCKERURL/rhel” > /etc/yum/vars/dockerurl’
+	$ sudo -E sh -c ‘echo “$DOCKERURL/rhel” > /etc/yum/vars/dockerurl’
 
 Store your OS version strin in /etc/yum/vars/dockerosversion:
 
