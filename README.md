@@ -7,6 +7,7 @@ Get your Docker EE repository URL:
 Go to https://store.docker.com/my-content and click the Setup button for Docker Enterprise Edition for Red Hat Enterprise Linux. There you copy the URL to download you edition.
 
 Create yum-repository:
+
 Store a temporary environment variable with the URL that you copied from before:
 
 	$ export DOCKERURL=”<DOCKER-EE-URL>”
